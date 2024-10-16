@@ -1,4 +1,4 @@
-(define (problem DroneRescueDomainProblem)
+(define (problem DroneRescue4X4Problem)
     (:domain DroneRescueDomain)
 
     ;; Declare objects with their types
