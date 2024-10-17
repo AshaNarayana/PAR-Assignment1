@@ -39,9 +39,10 @@
 
     ;; Action: Drop off a person at the safe zone
     (:action drop-off
-        :parameters (?d ?p)
-        :precondition (and (drone-full)(not(drone-empty)) (picked ?p) (drone ?d) (safe-zone ?d) (not (rescued ?p)))
+        :parameters (?p ?d)
+        :precondition (and (drone-full)
+            (not(drone-empty)) (picked ?p) (drone ?d) (safe-zone ?d) (not (rescued ?p)))
         :effect (and (rescued ?p) (drone-empty)
-            (not(picked ?p)))
+        )
     )
 )
