@@ -1,9 +1,10 @@
-(define (problem Drone3P3OProblem)
+(define (problem Drone_4P_4O_4X4_Problem)
     (:domain DroneRescueDomain)
+    ;; This problem statement has 4 persons to be rescued. Whereas the safe zone has a capacity of 3 persons only. For this reason person1, person2, person3 will be rescued and drone is brought to safe zone.
 
     ;; Declare objects with their types
     (:objects
-        drone obstacle person1 person2 person3 d11 d12 d13 d14 d21 d22 d23 d24 d31 d32 d33 d34 d41 d42 d43 d44
+        drone obstacle person1 person2 person3 person4 d11 d12 d13 d14 d21 d22 d23 d24 d31 d32 d33 d34 d41 d42 d43 d44
     )
 
     ;; Initial state
@@ -12,21 +13,20 @@
         (drone d11)
         (drone-empty)
 
-        ;; Safe zone at d23
-        (safe-zone d41)
+        ;; Safe zone at d42
+        (safe-zone d23)
         (safe-zone-space-3) ;; Space for 3 people
 
         ;; Person1 at d14
-        (person-location person1 d12)
-        (person-location person2 d14)
-        (person-location person3 d42)
+        (person-location person1 d14)
+        (person-location person2 d33)
+        (person-location person3 d44)
+        (person-location person4 d42)
         ;; Obstacles
         (obstacle d31)
         (obstacle d32)
-        (obstacle d24)
-        (obstacle d21)
         (obstacle d34)
-        (obstacle d44)
+        (obstacle d21)
 
         ;; Adjacency definitions
         (adjacent d11 d12)
@@ -58,7 +58,7 @@
 
     ;; Goal state: Person1 is rescued
     (:goal
-        (and(rescued person1)(rescued person2)(rescued person3)(drone-rest d41)
+        (and(rescued person1)(rescued person2)(rescued person3)(drone-rest d23)
         )
     )
 )

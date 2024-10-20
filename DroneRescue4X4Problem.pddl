@@ -1,7 +1,6 @@
 (define (problem DroneRescue4X4Problem)
     (:domain DroneRescueDomain)
 
-    ;; Declare objects with their types
     (:objects
         drone person1 person2 person3 d11 d12 d13 d14 d21 d22 d23 d24 d31 d32 d33 d34 d41 d42 d43 d44
     )
@@ -12,17 +11,19 @@
         (drone d11)
         (drone-empty)
 
-        ;; Safe zone at d23
-        (safe-zone d23)
+        ;; Safe zone at d42
+        (safe-zone d42)
+        (safe-zone-space-3) ;; Space for 3 people
 
-        ;; Person1 at d14
+        ;; Person locations
         (person-location person1 d14)
-        (person-location person2 d32)
-        (person-location person3 d41)
+        (person-location person2 d21)
+        (person-location person3 d32)
 
         ;; Obstacles
-        (obstacle d13)
-        (obstacle d42)
+        (obstacle d23)
+        (obstacle d33)
+        (obstacle d44)
 
         ;; Adjacency definitions
         (adjacent d11 d12)
@@ -52,9 +53,8 @@
         (adjacent d34 d44)
     )
 
-    ;; Goal state: Person1 is rescued
+    ;; Goal state: All persons are rescued and drone is resting
     (:goal
-        (and(rescued person1)(rescued person2)(rescued person3)
-            (drone-empty))
+        (and (rescued person1) (rescued person2) (rescued person3) (drone-rest d42))
     )
 )

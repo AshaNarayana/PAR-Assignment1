@@ -1,9 +1,10 @@
-(define (problem DroneRescue5X5Problem)
+(define (problem Drone5x5_5P_Problem)
     (:domain DroneRescueDomain)
+    ;; This problem statement has 5 persons to be rescued. Whereas the safe zone has a capacity of 434 persons only. I'm intentionally defining a goal of rescuing 5 persons to check wheather the planner will be able to generate the plan. As expected planner couldn't generate the plan. Hence the test case passed without generating any plans
 
     ;; Declare objects with their types
     (:objects
-        drone person1 person2 person3 person4 d11 d12 d13 d14 D15 d21 d22 d23 d24 D25 d31 d32 d33 d34 D35 d41 d42 d43 d44 D45 d51 d52 d53 d54 D55
+        drone person1 person2 person3 person4 person5 d11 d12 d13 d14 d15 d21 d22 d23 d24 d25 d31 d32 d33 d34 d35 d41 d42 d43 d44 D45 d51 d52 d53 d54 d55
     )
 
     ;; Initial state
@@ -21,6 +22,7 @@
         (person-location person2 d32)
         (person-location person3 d41)
         (person-location person4 d54)
+        (person-location person5 d55)
 
         ;; Obstacles
         (obstacle d13)
@@ -126,9 +128,9 @@
 
     )
 
-    ;; Goal state: Person1 is rescued
+    ;; Goal state
     (:goal
-        (and(rescued person1)(rescued person2)(rescued person3)(rescued person4)(drone-rest d53)
+        (and(rescued person1)(rescued person2)(rescued person3)(rescued person4)(rescued person5)
         )
     )
 )
