@@ -13,17 +13,20 @@
         (drone-empty)
 
         ;; Safe zone at d23
-        (safe-zone d23)
+        (safe-zone d41)
 
         ;; Person1 at d14
-        (person-location person1 d14)
-        (person-location person2 d33)
-        (person-location person3 d44)
+        (person-location person1 d12)
+        (person-location person2 d14)
+        (person-location person3 d42)
         ;; Obstacles
         (obstacle d31)
         (obstacle d32)
-        (obstacle d42)
+        (obstacle d24)
 
+        (capacity person1)
+        (capacity person2)
+        (capacity person3)
         ;; Adjacency definitions
         (adjacent d11 d12)
         (adjacent d12 d13)
